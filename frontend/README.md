@@ -1,4 +1,18 @@
+
+## Note to the Recruiter
+
+Please note that the `node_modules` folder has been removed to reduce the file size of this project. To set up the project, kindly follow these steps:
+
+1. Clone the repository.
+2. Run `npm install` to install all the necessary dependencies.
+
+Thank you for your understanding! If you encounter any issues during setup, please feel free to reach out.
+
+
+
 # React + TypeScript + Vite
+
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

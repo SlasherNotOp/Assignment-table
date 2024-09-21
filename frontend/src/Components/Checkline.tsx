@@ -8,7 +8,7 @@ Chart.register(...registerables);
 const Checkline: React.FC = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null); // Type for ref
   const [chartInstance, setChartInstance] = useState<Chart | null>(null); // Type for chart instance
-  const [chartType, setChartType] = useState<string>('line');
+
   const [chartData, setChartData] = useState<{ labels: string[]; datasets: any[] }>({
     labels: [],
     datasets: [],
@@ -19,7 +19,8 @@ const Checkline: React.FC = () => {
   useEffect(() => {
     const fetchChartData = async () => {
       try {
-        const labels = transformedData.map(item => item.year); // Assuming 'year' is a string
+        const labels = transformedData.map(item => String(item.year)); // Assuming 'year' is a string
+
         const totalJobsData = transformedData.map(item => item.totalJobs); // Assuming it's a number
         const avgSalaryUSDData = transformedData.map(item => item.avgSalaryUSD); // Assuming it's a number
 
@@ -73,7 +74,7 @@ const Checkline: React.FC = () => {
       }
 
       const newChartInstance = new Chart(chartRef.current, {
-        type: chartType,
+        type: "line",
         data: chartData,
         options: {
           responsive: true,
@@ -112,7 +113,7 @@ const Checkline: React.FC = () => {
               },
               beginAtZero: true,
               grid: {
-                drawBorder: false,
+                
               },
             },
           },
@@ -121,11 +122,8 @@ const Checkline: React.FC = () => {
 
       setChartInstance(newChartInstance);
     }
-  }, [chartData, chartType, loading, error]);
+  }, [chartData, loading, error]);
 
-  const handleChartTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setChartType(e.target.value);
-  };
 
   if (loading) {
     return <div className="text-center text-gray-500">Loading chart...</div>;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { Table } from 'antd';
 import { jobCounts } from '../data/test-Salary'; // Assuming jobCounts is an array of objects
 
@@ -19,7 +19,7 @@ interface SalaryProps {
 const SalaryTable: React.FC<SalaryProps> = ({value,isActive}) =>
  {
 
-  const [data,setData]=useState<DataType>();
+  
 
 
  

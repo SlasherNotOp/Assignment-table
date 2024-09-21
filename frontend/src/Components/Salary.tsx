@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { Table } from 'antd';
 import 'antd/dist/reset.css';
 import { transformedData } from '../data/test-Salary';
@@ -18,7 +18,7 @@ interface SalaryProps {
 }
 
 
-const Salary: React.FC<SalaryProps> = ({clickFunction,value}) => {
+const Salary: React.FC<SalaryProps> = ({clickFunction}) => {
 
   
 

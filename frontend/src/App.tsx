@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import './App.css'
 import Checkline from './Components/Checkline'
-import LineGraph from './Components/LineGraph'
 import Salary from './Components/Salary'
 import SalaryTable from './Components/SalaryTable'
 

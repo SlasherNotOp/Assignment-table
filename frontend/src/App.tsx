@@ -48,7 +48,7 @@ function App() {
     position="top-center"
     />
 
-    <div className='flex items-center justify-around h-screen m-5'>
+    <div className='flex  justify-around h-screen mt-10'>
 
     
 

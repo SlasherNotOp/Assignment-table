@@ -60,10 +60,17 @@ const Salary: React.FC<SalaryProps> = ({clickFunction}) => {
 
 
   return (
-    <div className='rounded shadow-lg w-2/5'>
-      <div className='flex justify-center w-full h-10 text-xl'>
-      <h1>Table that shows the Data according Year, Jobs and Salary</h1>
-      </div>
+    <>
+    <div className=' w-2/5'>
+
+
+    <div className='flex  items-center justify-center w-full py-10 '>
+    <h1 className='text-4xl w-full text-center font-semibold'
+    >Table of Year, Jobs & Avg Salary</h1>
+    </div>
+
+    <div className=' rounded shadow-lg'>
+     
       <Table
         columns={columns}
         dataSource={transformedData}
@@ -71,6 +78,8 @@ const Salary: React.FC<SalaryProps> = ({clickFunction}) => {
        pagination={false}
       />
     </div>
+    </div>
+    </>
   );
 };
 

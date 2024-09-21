@@ -12,19 +12,17 @@ interface DataType {
 
 
 
+interface SalaryProps {
+  clickFunction: (text: string) => void;
+  value:string|null;
+}
 
 
-
-const Salary: React.FC = () => {
+const Salary: React.FC<SalaryProps> = ({clickFunction,value}) => {
 
   
 
-  const [value,setValue]=useState<string|null>(null);
-
-  function clickFunction(text:string){
-    setValue(text)
-   
-  }
+  
   // console.log(value)
   
 
@@ -62,12 +60,15 @@ const Salary: React.FC = () => {
 
 
   return (
-    <div className='rounded shadow-lg'>
+    <div className='rounded shadow-lg w-2/5'>
+      <div className='flex justify-center w-full h-10 text-xl'>
+      <h1>Table that shows the Data according Year, Jobs and Salary</h1>
+      </div>
       <Table
         columns={columns}
         dataSource={transformedData}
         rowKey="year"
-        pagination={true}
+       pagination={false}
       />
     </div>
   );

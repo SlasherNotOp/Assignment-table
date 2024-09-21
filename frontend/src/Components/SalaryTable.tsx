@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Table } from 'antd';
 import { jobCounts } from '../data/test-Salary'; // Assuming jobCounts is an array of objects
 
@@ -8,9 +8,27 @@ interface DataType {
   work_year: number;
   key: string; // Unique key for each row
 }
+interface SalaryProps {
+ 
+  value:string|null;
+  isActive:boolean;
+  
+}
 
-const SalaryTable: React.FC = () => {
-  console.log(jobCounts);
+
+const SalaryTable: React.FC<SalaryProps> = ({value,isActive}) =>
+ {
+
+  const [data,setData]=useState<DataType>();
+
+
+ 
+
+  // console.log(jobCounts);
+
+   
+
+
 
   const columns = [
     {
@@ -33,18 +51,30 @@ const SalaryTable: React.FC = () => {
     },
   ];
 
-  const dataSource: DataType[] = jobCounts.map((job, index) => ({
+  let dataSource: DataType[] = jobCounts.map((job, index) => ({
     key: index.toString(), // Assigning a unique key to each entry
     job_title: job.job_title,
     total_jobs: job.total_jobs,
     work_year: job.work_year,
   }));
 
+  dataSource= dataSource.filter((item)=>{
+    if(Number(value)<=item.work_year){
+     return item;
+    }
+
+  })
+
   return (
+
+    
+    <div className= {isActive? '':'hidden '+ 'rounded shadow-lg w-2/5 '} >
+      
     <Table
       columns={columns}
       dataSource={dataSource}
     />
+    </div>
   );
 };
 

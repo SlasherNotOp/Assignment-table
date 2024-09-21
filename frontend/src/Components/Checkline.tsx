@@ -32,7 +32,13 @@ const Checkline: React.FC = () => {
               backgroundColor: 'rgba(255, 99, 132, 0.2)',
               borderColor: 'rgba(255, 99, 132, 1)',
               borderWidth: 2,
-              pointRadius: 0,
+              pointRadius: 2,
+              fill:true,
+              tension: 0.2,
+              showLine:true,
+              
+              
+              
             },
             {
               label: 'Avg Salary USD',
@@ -40,7 +46,12 @@ const Checkline: React.FC = () => {
               backgroundColor: 'rgba(54, 162, 235, 0.2)',
               borderColor: 'rgba(54, 162, 235, 1)',
               borderWidth: 2,
-              pointRadius: 0,
+              pointRadius: 2,
+              fill:true,
+              tension:0.2,
+              showLine:true,
+              hidden:true,
+              
             },
           ],
         });
@@ -86,7 +97,7 @@ const Checkline: React.FC = () => {
             x: {
               title: {
                 display: true,
-                text: 'Country',
+                text: 'Year',
                 font: { size: 16 },
               },
               grid: {
@@ -96,7 +107,7 @@ const Checkline: React.FC = () => {
             y: {
               title: {
                 display: true,
-                text: 'Value',
+                text: 'Total Jobs & Avg Salary',
                 font: { size: 16 },
               },
               beginAtZero: true,
